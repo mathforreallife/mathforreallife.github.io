@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Stats · Math For Real Life</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/stats.css">
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/stats.js" defer></script>
+</head>
+<body data-no-track>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="34" height="34">Stats</a>
+  <nav class="nav">
+    <button class="link-btn" type="button" data-signout hidden>Sign out</button>
+    <button class="theme-btn" type="button" aria-label="Switch light or dark theme" data-theme-toggle>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </nav>
+</div></header>
+
+<main class="wrap viz-root">
+  <section class="login" data-login hidden>
+    <h1>Private stats</h1>
+    <p>Only you can see these numbers. Paste your stats key (it's in the project's <code>.env</code> as <code>STATS_TOKEN</code>). It stays on this device.</p>
+    <form data-loginform><input type="password" data-token placeholder="Stats key" autocomplete="current-password" required><button type="submit">Show my stats</button></form>
+    <p class="err" data-loginerr></p>
+  </section>
+
+  <section data-dash hidden>
+    <div class="filters" role="group" aria-label="Date range">
+      <button type="button" data-days="7">Last 7 days</button>
+      <button type="button" data-days="30" aria-pressed="true">Last 30 days</button>
+      <button type="button" data-days="90">Last 90 days</button>
+      <button type="button" data-days="365">Last 12 months</button>
+      <span class="since" data-since></span>
+    </div>
+    <div class="tiles" data-tiles></div>
+    <div class="grid">
+      <article class="card wide" data-chart="views"></article>
+      <article class="card" data-chart="unlocks"></article>
+      <article class="card" data-chart="amazon"></article>
+      <article class="card" data-chart="params"></article>
+      <article class="card" data-chart="refs"></article>
+      <article class="card" data-chart="countries"></article>
+      <article class="card" data-chart="devices"></article>
+      <article class="card" data-chart="pages"></article>
+      <article class="card" data-chart="stores"></article>
+    </div>
+    <aside class="howto">
+      <h2>Tracking a link</h2>
+      <p>Add <code>?src=</code> and a name to any link you share, and the visits show up under “Traffic from your links”. For example
+      <code>https://mathforreallife.github.io/?src=pinterest</code> or <code>?src=newsletter</code>. Longer UTM tags
+      (<code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code>) work too. Visits are counted without cookies or IP addresses.</p>
+    </aside>
+  </section>
+  <div class="tooltip" data-tip role="tooltip" hidden></div>
+</main>
+</body>
+</html>

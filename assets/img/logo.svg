@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <!-- Math For Real Life: profile logo. Pen blue field, an open book with the four operations, coral cover. -->
+  <rect width="1000" height="1000" fill="#1d4fc4"/>
+  <!-- cover -->
+  <path d="M500 368 C424 332 314 322 186 332 L186 748 C314 740 424 752 500 794 C576 752 686 740 814 748 L814 332 C686 322 576 332 500 368 Z" fill="#f07b5a"/>
+  <!-- page edges (stack) -->
+  <path d="M208 730 C320 722 426 734 500 774 C574 734 680 722 792 730" fill="none" stroke="#ffffff" stroke-width="12" stroke-opacity=".85"/>
+  <!-- pages -->
+  <path d="M500 340 C428 302 322 292 208 300 L208 714 C322 706 428 718 500 758 Z" fill="#ffffff"/>
+  <path d="M500 340 C572 302 678 292 792 300 L792 714 C678 706 572 718 500 758 Z" fill="#eef3fd"/>
+  <!-- the four operations -->
+  <g stroke="#1d4fc4" stroke-width="38" stroke-linecap="round" fill="none">
+    <path d="M354 408 V516 M300 462 H408"/>
+    <path d="M314 574 L394 654 M394 574 L314 654"/>
+    <path d="M592 462 H700"/>
+    <path d="M592 614 H700"/>
+  </g>
+  <g fill="#1d4fc4"><circle cx="646" cy="562" r="21"/><circle cx="646" cy="666" r="21"/></g>
+</svg>

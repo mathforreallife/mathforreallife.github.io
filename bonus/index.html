@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your free bonus · Math For Real Life</title>
+<meta name="description" content="Unlock the free bonus that comes with Math For Real Life: a 34-slide presentation on how a neural network reads handwriting, and a live demo.">
+<meta name="theme-color" content="#1d4fc4">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/bonus.css">
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/bonus.js" defer></script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="34" height="34">Math For Real Life</a>
+  <nav class="nav">
+    <a href="/">The book</a>
+    <button class="theme-btn" type="button" aria-label="Switch light or dark theme" data-theme-toggle>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section class="unlock" data-lock>
+    <div class="kicker">Your free bonus</div>
+    <h1>How a neural network reads handwriting</h1>
+    <p class="lead">A complete 34-slide presentation, step by step from the pixels of a drawing to the network's final guess, and a live demo where you draw a digit and watch it think. It comes with every copy of the book.</p>
+    <form class="codeform" data-form autocomplete="off">
+      <label for="code">Type the code from page 159 of the book</label>
+      <div class="row">
+        <input id="code" name="code" inputmode="text" autocapitalize="characters" spellcheck="false" maxlength="19" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+        <button type="submit" data-submit>Unlock</button>
+      </div>
+      <label class="remember"><input type="checkbox" data-remember checked> Remember it on this device</label>
+      <p class="msg" data-msg role="status" aria-live="polite"></p>
+    </form>
+    <ul class="perks">
+      <li><b>34 slides</b> to present as they are, in class, at work or at home</li>
+      <li><b>PowerPoint and PDF</b> to download and keep</li>
+      <li><b>A live demo</b>: draw a digit, see the guess</li>
+      <li><b>No sign-up</b>, no email address, nothing to buy</li>
+    </ul>
+  </section>
+
+  <section class="viewer" data-viewer hidden>
+    <div class="vhead">
+      <div><div class="kicker">Unlocked</div><h1>How a neural network reads handwriting</h1></div>
+      <div class="actions" data-actions></div>
+    </div>
+    <div class="screen" data-screen>
+      <img data-slide alt="">
+      <button class="nav-btn prev" type="button" data-prev aria-label="Previous slide">‹</button>
+      <button class="nav-btn next" type="button" data-next aria-label="Next slide">›</button>
+      <button class="fs" type="button" data-fs aria-label="Full screen">⤢</button>
+    </div>
+    <div class="vbar">
+      <span data-count>1 / 34</span>
+      <input type="range" min="1" max="34" value="1" data-range aria-label="Go to slide">
+      <span class="tip">← → keys or swipe</span>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <div>© 2026 Math For Real Life</div>
+  <nav><a href="/">The book</a><a href="/privacy/">Privacy</a><a href="/legal/" data-legal-link hidden>Legal notice</a></nav>
+  <div class="socials" data-socials></div>
+</div></footer>
+</body>
+</html>
