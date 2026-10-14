@@ -94,7 +94,7 @@ img { max-width: 100%; }
 .bonus-note .pen { font: 600 23px/1 var(--hand); }
 
 /* sections */
-section.band { padding: 70px 0; }
+section.band { padding: 70px 0; scroll-margin-top: 64px; }
 .band h2 { font: 700 clamp(30px, 4vw, 44px)/1.05 var(--display); letter-spacing: -.02em; margin: 0 0 10px; }
 .band .intro { color: var(--soft); margin: 0 0 28px; max-width: 40em; font-size: 17px; }
 .chapters { display: flex; flex-wrap: wrap; gap: 10px; }
