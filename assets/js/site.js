@@ -111,6 +111,11 @@
   const track_ = $("[data-track]");
   if (track_ && reviews.length >= 3) {
     $("#reviews").hidden = false;
+    const early = C.reviewsSource === "early";
+    if (early) {
+      $("[data-reviews-title]").textContent = "What early readers say";
+      $("[data-reviews-intro]").textContent = "From friends and family who read a pre-release copy of the book.";
+    }
     $$("[data-reviews-link]").forEach((a) => (a.hidden = false));
     const star = (n) => {
       const ns = "http://www.w3.org/2000/svg";
@@ -139,7 +144,7 @@
       st.append(star(r.stars));
       const ttl = document.createElement("b"); ttl.textContent = r.title || ""; st.append(ttl);
       const meta = document.createElement("div"); meta.className = "meta";
-      meta.textContent = `Reviewed in ${r.country} on ${r.date}`;
+      meta.textContent = early ? `Early reader · ${r.country} · ${r.date}` : `Reviewed in ${r.country} on ${r.date}`;
       const p = document.createElement("p"); p.textContent = r.text;
       const sr = document.createElement("span"); sr.className = "sr"; sr.textContent = `${r.stars} out of 5 stars.`;
       el.append(who, sr, st, meta, p);
