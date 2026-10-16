@@ -39,6 +39,32 @@
       <button type="button" data-days="365">Last 12 months</button>
       <span class="since" data-since></span>
     </div>
+    <section class="kdp">
+      <div class="sec-head">
+        <h2>Book sales <span>from KDP</span></h2>
+        <button type="button" class="import-btn" data-kdp-import>Import a KDP report</button>
+        <input type="file" accept=".xlsx,.xls,.csv" data-kdp-file hidden>
+      </div>
+      <p class="kdp-status" data-kdp-status role="status" aria-live="polite"></p>
+      <div class="tiles" data-kdp-tiles></div>
+      <div class="grid">
+        <article class="card wide" data-chart="kdp-units"></article>
+        <article class="card" data-chart="kdp-markets"></article>
+        <article class="card" data-chart="kdp-money"></article>
+      </div>
+      <details class="howto">
+        <summary>How to bring in your KDP numbers</summary>
+        <p>KDP doesn't offer an API key, so the numbers come from KDP's own report file:</p>
+        <ol>
+          <li>On <b>kdp.amazon.com</b>, open <b>Reports</b>.</li>
+          <li>Open <b>Royalties</b> (units sold, refunds and royalties) or <b>Orders</b> (paperbacks ordered), choose the dates, and download the report (the <b>Download</b> / <b>Generate report</b> button gives an Excel file).</li>
+          <li>Click <b>Import a KDP report</b> above and pick that file.</li>
+        </ol>
+        <p>Import as often as you like: a new import replaces the same dates, so nothing is counted twice. Royalties are KDP's estimates until Amazon pays them, and they stay in each store's own currency.</p>
+      </details>
+    </section>
+
+    <h2 class="sec-title">Website</h2>
     <div class="tiles" data-tiles></div>
     <div class="grid">
       <article class="card wide" data-chart="views"></article>

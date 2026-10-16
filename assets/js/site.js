@@ -45,26 +45,52 @@
   window.MFRLtrack = track;
   if (!document.body.hasAttribute("data-no-track")) track("view");
 
-  /* ---- Amazon button: the visitor's own store ---- */
+  /* ---- Amazon: the visitor's own store, from their country (Cloudflare, via the analytics worker), else the browser language ---- */
   const stores = (C.stores || []).filter((s) => s.url);
+  const STORE_OF = { GB: "UK", GG: "UK", JE: "UK", IM: "UK", IE: "IE", DE: "DE", AT: "DE", CH: "DE", LI: "DE", LU: "DE", DK: "DE", SE: "DE",
+    NO: "DE", FI: "DE", CZ: "DE", SK: "DE", HU: "DE", SI: "DE", HR: "DE", FR: "FR", BE: "FR", MC: "FR", ES: "ES", PT: "ES", AD: "ES",
+    IT: "IT", SM: "IT", VA: "IT", MT: "IT", NL: "NL", PL: "PL", LT: "PL", LV: "PL", EE: "PL", CA: "CA", AU: "AU", NZ: "AU", JP: "JP" };
+  const LANG_OF = { de: "DE", fr: "FR", es: "ES", it: "IT", nl: "NL", pl: "PL", ja: "JP" };
+  const lang = (navigator.language || "en-US").toLowerCase();
+  function storeFor(country) {
+    if (country === "BE" && lang.startsWith("nl")) country = "NL";
+    const code = country ? STORE_OF[country] || "US" : null;
+    return stores.find((s) => s.code === code);
+  }
+  function guessStore() {
+    const region = (lang.split("-")[1] || "").toUpperCase();
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    return (region && storeFor(region)) || (tz === "Europe/London" && storeFor("GB")) || (tz === "Europe/Madrid" && storeFor("ES")) ||
+      stores.find((s) => s.code === LANG_OF[lang.slice(0, 2)]) || stores.find((s) => s.code === "US") || stores[0];
+  }
+  // calls back with the best store: at once from the browser language, then again if the country lookup answers within 2 s
+  function pickStore(cb) {
+    if (!stores.length) return;
+    cb(guessStore(), false);
+    if (!C.analytics) return;
+    const ctl = "AbortController" in window ? new AbortController() : null;
+    const timer = setTimeout(() => ctl && ctl.abort(), 2000);
+    fetch(C.analytics + "/geo", { signal: ctl && ctl.signal, cache: "no-store" }).then((r) => r.json()).then((g) => {
+      clearTimeout(timer);
+      const s = storeFor(g && g.country);
+      if (s) cb(s, true);
+    }).catch(() => {});
+  }
+  window.MFRLpickStore = pickStore;
   const buy = $("[data-buy]");
   if (buy) {
     const select = $("[data-store]");
-    const lang = (navigator.language || "en-US").toLowerCase();
-    const tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || "");
-    const guess = lang.endsWith("-gb") || tz === "Europe/London" ? "UK" : lang.startsWith("de") ? "DE" : lang.startsWith("fr") && lang.endsWith("ca") ? "CA"
-      : lang.startsWith("fr") ? "FR" : lang.startsWith("es") || tz === "Europe/Madrid" ? "ES" : lang.startsWith("it") ? "IT" : lang.endsWith("-ca") ? "CA" : "US";
     if (!stores.length) {
       buy.setAttribute("aria-disabled", "true");
       buy.removeAttribute("href");
       $("[data-buy-label]").textContent = "Coming soon to Amazon";
       $("[data-store-wrap]").hidden = true;
     } else {
-      let chosen = stores.find((s) => s.code === guess) || stores.find((s) => s.code === "US") || stores[0];
+      let chosen = stores[0], touched = false;
       stores.forEach((s) => { const o = document.createElement("option"); o.value = s.code; o.textContent = s.name; select.appendChild(o); });
       const apply = () => { buy.href = chosen.url; select.value = chosen.code; };
-      apply();
-      select.addEventListener("change", () => { chosen = stores.find((s) => s.code === select.value); apply(); });
+      pickStore((s) => { if (!touched) { chosen = s; apply(); } });
+      select.addEventListener("change", () => { touched = true; chosen = stores.find((s) => s.code === select.value); apply(); });
       if (stores.length < 2) $("[data-store-wrap]").hidden = true;
       buy.target = "_blank";
       buy.addEventListener("click", () => track("amazon", chosen.code));
@@ -113,8 +139,8 @@
     $("#reviews").hidden = false;
     const early = C.reviewsSource === "early";
     if (early) {
-      $("[data-reviews-title]").textContent = "What early readers say";
-      $("[data-reviews-intro]").textContent = "From friends and family who read a pre-release copy of the book.";
+      $("[data-reviews-title]").textContent = "What readers say";
+      $("[data-reviews-intro]").textContent = "From readers who enjoyed the book.";
     }
     $$("[data-reviews-link]").forEach((a) => (a.hidden = false));
     const star = (n) => {
@@ -144,7 +170,7 @@
       st.append(star(r.stars));
       const ttl = document.createElement("b"); ttl.textContent = r.title || ""; st.append(ttl);
       const meta = document.createElement("div"); meta.className = "meta";
-      meta.textContent = early ? `Early reader · ${r.country} · ${r.date}` : `Reviewed in ${r.country} on ${r.date}`;
+      meta.textContent = early ? [r.country, r.date].filter(Boolean).join(" · ") : `Reviewed in ${r.country} on ${r.date}`;
       const p = document.createElement("p"); p.textContent = r.text;
       const sr = document.createElement("span"); sr.className = "sr"; sr.textContent = `${r.stars} out of 5 stars.`;
       el.append(who, sr, st, meta, p);

@@ -4,37 +4,62 @@ window.MFRL = {
   {
    "code": "US",
    "name": "amazon.com",
-   "url": ""
+   "url": "https://www.amazon.com/dp/B0HN37HYBT"
   },
   {
    "code": "UK",
    "name": "amazon.co.uk",
-   "url": ""
+   "url": "https://www.amazon.co.uk/dp/B0HN37HYBT"
+  },
+  {
+   "code": "IE",
+   "name": "amazon.ie",
+   "url": "https://www.amazon.ie/dp/B0HN37HYBT"
   },
   {
    "code": "DE",
    "name": "amazon.de",
-   "url": ""
+   "url": "https://www.amazon.de/dp/B0HN37HYBT"
   },
   {
    "code": "FR",
    "name": "amazon.fr",
-   "url": ""
+   "url": "https://www.amazon.fr/dp/B0HN37HYBT"
   },
   {
    "code": "ES",
    "name": "amazon.es",
-   "url": ""
+   "url": "https://www.amazon.es/dp/B0HN37HYBT"
   },
   {
    "code": "IT",
    "name": "amazon.it",
-   "url": ""
+   "url": "https://www.amazon.it/dp/B0HN37HYBT"
+  },
+  {
+   "code": "NL",
+   "name": "amazon.nl",
+   "url": "https://www.amazon.nl/dp/B0HN37HYBT"
+  },
+  {
+   "code": "PL",
+   "name": "amazon.pl",
+   "url": "https://www.amazon.pl/dp/B0HN37HYBT"
   },
   {
    "code": "CA",
    "name": "amazon.ca",
-   "url": ""
+   "url": "https://www.amazon.ca/dp/B0HN37HYBT"
+  },
+  {
+   "code": "AU",
+   "name": "amazon.com.au",
+   "url": "https://www.amazon.com.au/dp/B0HN37HYBT"
+  },
+  {
+   "code": "JP",
+   "name": "amazon.co.jp",
+   "url": "https://www.amazon.co.jp/dp/B0HN37HYBT"
   }
  ],
  "reviews": [
