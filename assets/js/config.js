@@ -64,31 +64,15 @@ window.MFRL = {
  ],
  "reviews": [
   {
-   "name": "Kevin A.",
+   "name": "Pietro Tarusello",
    "stars": 5,
-   "title": "Nice tips",
-   "text": "Nice colours and the perfect christmas gift for my grandchildren.",
-   "country": "United States",
-   "date": "October 14, 2026"
-  },
-  {
-   "name": "Pierino Maldicollo",
-   "stars": 5,
-   "title": "perfect for the kitchen unit conversion",
-   "text": "my wife and I are amazed by the tricks in this book. definitely recommend it for people who cook a lot at home 👍",
-   "country": "Italy",
-   "date": "October 6, 2026"
-  },
-  {
-   "name": "Alicia V.",
-   "stars": 5,
-   "title": "Well written handbook for people of all ages",
-   "text": "I recently stumbled across this book thanks to a friend, and I have to say that I've been pleasantly surprised on how organised and clear all of the explanations are. Definitely recommend it to keep your mental math skill strong.",
-   "country": "United States",
-   "date": "October 8, 2026"
+   "title": "Extremely satisfied!!!",
+   "text": "I bought this book for my granddaughter since she started school recently. It has helped her a lot with math; I would buy this product again. 👍",
+   "country": "Spain",
+   "date": "October 16, 2026"
   }
  ],
- "reviewsSource": "early",
+ "reviewsSource": "amazon",
  "socials": {
   "youtube": "https://www.youtube.com/@mathforreallife",
   "tiktok": "https://www.tiktok.com/@mathforreallife1",

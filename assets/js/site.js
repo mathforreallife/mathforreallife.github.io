@@ -135,7 +135,7 @@
   /* ---- reviews: only real ones, only when switched on ---- */
   const reviews = C.reviews || [];
   const track_ = $("[data-track]");
-  if (track_ && reviews.length >= 3) {
+  if (track_ && reviews.length) {
     $("#reviews").hidden = false;
     const early = C.reviewsSource === "early";
     if (early) {
@@ -176,11 +176,17 @@
       el.append(who, sr, st, meta, p);
       return el;
     };
-    // two copies side by side make a seamless loop; at least 8 cards so the strip is wider than any screen
-    let list = reviews.slice();
-    while (list.length < 8) list = list.concat(reviews);
-    [...list, ...list].forEach((r, i) => { const c = card(r); if (i >= list.length) c.setAttribute("aria-hidden", "true"); track_.appendChild(c); });
-    track_.style.setProperty("--dur", list.length * 5 + "s");
+    // one or two reviews: shown still and centered (a scroller would repeat the same card over and over)
+    if (reviews.length < 3) {
+      track_.parentElement.classList.add("few");
+      reviews.forEach((r) => track_.appendChild(card(r)));
+    } else {
+      // two copies side by side make a seamless loop; at least 8 cards so the strip is wider than any screen
+      let list = reviews.slice();
+      while (list.length < 8) list = list.concat(reviews);
+      [...list, ...list].forEach((r, i) => { const c = card(r); if (i >= list.length) c.setAttribute("aria-hidden", "true"); track_.appendChild(c); });
+      track_.style.setProperty("--dur", list.length * 5 + "s");
+    }
   }
 
   /* ---- socials and legal notice ---- */

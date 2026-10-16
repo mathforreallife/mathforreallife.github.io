@@ -120,6 +120,8 @@ section.band { padding: 70px 0; scroll-margin-top: 64px; text-align: center; }
 /* pause on mouse hover only: on touch screens a tap counts as a hover that never ends, which froze the scroller */
 @media (hover: hover) and (pointer: fine) { .reviews:hover .track { animation-play-state: paused; } }
 @keyframes scroll { to { transform: translateX(calc(-50% - 8px)); } }
+.reviews.few { mask-image: none; }
+.reviews.few .track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; padding: 4px 16px; }
 @media (prefers-reduced-motion: reduce) { .track { animation: none; } .reviews { overflow-x: auto; } .float { animation: none; } }
 .review { width: min(300px, 78vw); flex: 0 0 auto; text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; font-size: 14px; line-height: 1.45; }
 .review .who { display: flex; align-items: center; gap: 9px; font: 600 13px/1 var(--ui); }
