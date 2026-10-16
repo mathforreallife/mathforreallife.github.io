@@ -82,8 +82,10 @@ html { -webkit-tap-highlight-color: transparent; }
 .buy { display: inline-flex; align-items: center; gap: 14px; background: var(--pen); color: #fff; text-decoration: none; border: 0; cursor: pointer;
   font: 800 21px/1 var(--ui); letter-spacing: -.01em; padding: 22px 34px; border-radius: 999px; box-shadow: 0 14px 34px color-mix(in srgb, var(--pen) 40%, transparent);
 }
-.buy, .gift { transition: transform .15s; }
-.buy:hover, .gift:hover { transform: translateY(-2px); }  /* lift only: the shadow stays the same (no glow) */
+.buy, .gift { transition: transform .2s cubic-bezier(.2, .8, .2, 1); will-change: transform; }
+/* buttons rise under the mouse (and while pressed on touch screens); the shadow never changes, so there is no glow */
+@media (hover: hover) { .buy:hover, .gift:hover { transform: translateY(-5px); } }
+.buy:active, .gift:active { transform: translateY(-3px); }
 .buy svg { width: 22px; height: 22px; }
 .buy[aria-disabled="true"] { background: var(--soft); box-shadow: none; cursor: default; transform: none; }
 .buy-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
