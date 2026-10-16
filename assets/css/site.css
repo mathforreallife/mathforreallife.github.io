@@ -80,10 +80,10 @@ html { -webkit-tap-highlight-color: transparent; }
 .pitch .sub { font: italic 400 19px/1.45 Georgia, 'Times New Roman', serif; color: var(--soft); margin: 0 0 18px; max-width: 30em; }
 .pitch .lead { font-size: 17px; color: var(--soft); margin: 0 0 26px; max-width: 32em; }
 .buy { display: inline-flex; align-items: center; gap: 14px; background: var(--pen); color: #fff; text-decoration: none; border: 0; cursor: pointer;
-  font: 800 21px/1 var(--ui); letter-spacing: -.01em; padding: 22px 34px; border-radius: 999px; box-shadow: 0 14px 34px color-mix(in srgb, var(--pen) 40%, transparent);
+  font: 800 21px/1 var(--ui); letter-spacing: -.01em; padding: 22px 34px; border-radius: 999px; box-shadow: none;
 }
 .buy, .gift { transition: transform .2s cubic-bezier(.2, .8, .2, 1); will-change: transform; }
-/* buttons rise under the mouse (and while pressed on touch screens); the shadow never changes, so there is no glow */
+/* buttons rise under the mouse (and while pressed on touch screens); no shadow at all, so there is no glow (owner, 16 Oct 2026) */
 @media (hover: hover) { .buy:hover, .gift:hover { transform: translateY(-5px); } }
 .buy:active, .gift:active { transform: translateY(-3px); }
 .buy svg { width: 22px; height: 22px; }
@@ -95,7 +95,7 @@ html { -webkit-tap-highlight-color: transparent; }
 .facts span { font: 600 13px/1 var(--ui); color: var(--soft); background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 9px 13px; }
 .gift { display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: center; margin-top: 26px; max-width: 560px; padding: 18px 22px 18px 18px;
   border-radius: 22px; text-decoration: none; color: #fff; background: linear-gradient(135deg, #1d4fc4, #3d63c9 60%, #5b4fc4);
-  box-shadow: 0 16px 40px rgba(29, 79, 196, .32); text-align: left; }
+  box-shadow: none; text-align: left; }
 .gift-slides { position: relative; height: 104px; }
 .gift-slides img { position: absolute; width: 132px; height: auto; aspect-ratio: 16 / 9; border-radius: 8px; box-shadow: 0 8px 18px rgba(0, 0, 30, .35); }
 .gift-slides img:nth-child(1) { left: 0; top: 0; transform: rotate(-6deg); }
