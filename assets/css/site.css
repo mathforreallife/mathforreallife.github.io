@@ -81,8 +81,7 @@ html { -webkit-tap-highlight-color: transparent; }
 .pitch .lead { font-size: 17px; color: var(--soft); margin: 0 0 26px; max-width: 32em; }
 .buy { display: inline-flex; align-items: center; gap: 14px; background: var(--pen); color: #fff; text-decoration: none; border: 0; cursor: pointer;
   font: 800 21px/1 var(--ui); letter-spacing: -.01em; padding: 22px 34px; border-radius: 999px; box-shadow: 0 14px 34px color-mix(in srgb, var(--pen) 40%, transparent);
-  transition: transform .15s, box-shadow .15s; }
-.buy:hover { transform: translateY(-2px); box-shadow: 0 18px 40px color-mix(in srgb, var(--pen) 48%, transparent); }
+}
 .buy svg { width: 22px; height: 22px; }
 .buy[aria-disabled="true"] { background: var(--soft); box-shadow: none; cursor: default; transform: none; }
 .buy-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
@@ -92,8 +91,7 @@ html { -webkit-tap-highlight-color: transparent; }
 .facts span { font: 600 13px/1 var(--ui); color: var(--soft); background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 9px 13px; }
 .gift { display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: center; margin-top: 26px; max-width: 560px; padding: 18px 22px 18px 18px;
   border-radius: 22px; text-decoration: none; color: #fff; background: linear-gradient(135deg, #1d4fc4, #3d63c9 60%, #5b4fc4);
-  box-shadow: 0 16px 40px rgba(29, 79, 196, .32); transition: transform .15s, box-shadow .15s; text-align: left; }
-.gift:hover { transform: translateY(-2px); box-shadow: 0 20px 46px rgba(29, 79, 196, .42); }
+  box-shadow: 0 16px 40px rgba(29, 79, 196, .32); text-align: left; }
 .gift-slides { position: relative; height: 104px; }
 .gift-slides img { position: absolute; width: 132px; height: auto; aspect-ratio: 16 / 9; border-radius: 8px; box-shadow: 0 8px 18px rgba(0, 0, 30, .35); }
 .gift-slides img:nth-child(1) { left: 0; top: 0; transform: rotate(-6deg); }
@@ -115,7 +113,8 @@ section.band { padding: 70px 0; scroll-margin-top: 64px; text-align: center; }
 /* reviews: Amazon-style cards, scrolling sideways at a steady pace */
 .reviews { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
 .track { display: flex; gap: 16px; width: max-content; animation: scroll var(--dur, 40s) linear infinite; }
-.reviews:hover .track { animation-play-state: paused; }
+/* pause on mouse hover only: on touch screens a tap counts as a hover that never ends, which froze the scroller */
+@media (hover: hover) and (pointer: fine) { .reviews:hover .track { animation-play-state: paused; } }
 @keyframes scroll { to { transform: translateX(calc(-50% - 8px)); } }
 @media (prefers-reduced-motion: reduce) { .track { animation: none; } .reviews { overflow-x: auto; } .float { animation: none; } }
 .review { width: min(300px, 78vw); flex: 0 0 auto; text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; font-size: 14px; line-height: 1.45; }
