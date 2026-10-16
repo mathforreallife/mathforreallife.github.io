@@ -7,10 +7,10 @@
 <title>Stats · Math For Real Life</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="stylesheet" href="/assets/css/site.css?v=2ae16979e7">
-<link rel="stylesheet" href="/assets/css/stats.css?v=ef0f772626">
+<link rel="stylesheet" href="/assets/css/stats.css?v=9ac1f419d8">
 <script src="/assets/js/config.js?v=3271175942"></script>
 <script src="/assets/js/site.js?v=4f63c07561" defer></script>
-<script src="/assets/js/stats.js?v=0c821e625e" defer></script>
+<script src="/assets/js/stats.js?v=09e5aa2176" defer></script>
 </head>
 <body data-no-track>
 <header class="top"><div class="wrap">
@@ -32,6 +32,16 @@
   </section>
 
   <section data-dash hidden>
+    <section class="kdp-link">
+      <div>
+        <h2>Book sales</h2>
+        <p>Paperbacks sold, orders and royalties are on KDP's own reports dashboard.</p>
+      </div>
+      <a class="kdp-btn" href="https://kdpreports.amazon.com/dashboard" target="_blank" rel="noopener noreferrer">Open KDP Reports
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    </section>
+
+    <h2 class="sec-title">Website</h2>
     <div class="filters" role="group" aria-label="Date range">
       <button type="button" data-days="7">Last 7 days</button>
       <button type="button" data-days="30" aria-pressed="true">Last 30 days</button>
@@ -39,32 +49,6 @@
       <button type="button" data-days="365">Last 12 months</button>
       <span class="since" data-since></span>
     </div>
-    <section class="kdp">
-      <div class="sec-head">
-        <h2>Book sales <span>from KDP</span></h2>
-        <button type="button" class="import-btn" data-kdp-import>Import a KDP report</button>
-        <input type="file" accept=".xlsx,.xls,.csv" data-kdp-file hidden>
-      </div>
-      <p class="kdp-status" data-kdp-status role="status" aria-live="polite"></p>
-      <div class="tiles" data-kdp-tiles></div>
-      <div class="grid">
-        <article class="card wide" data-chart="kdp-units"></article>
-        <article class="card" data-chart="kdp-markets"></article>
-        <article class="card" data-chart="kdp-money"></article>
-      </div>
-      <details class="howto">
-        <summary>How to bring in your KDP numbers</summary>
-        <p>KDP doesn't offer an API key, so the numbers come from KDP's own report file:</p>
-        <ol>
-          <li>On <b>kdp.amazon.com</b>, open <b>Reports</b>.</li>
-          <li>Open <b>Royalties</b> (units sold, refunds and royalties) or <b>Orders</b> (paperbacks ordered), choose the dates, and download the report (the <b>Download</b> / <b>Generate report</b> button gives an Excel file).</li>
-          <li>Click <b>Import a KDP report</b> above and pick that file.</li>
-        </ol>
-        <p>Import as often as you like: a new import replaces the same dates, so nothing is counted twice. Royalties are KDP's estimates until Amazon pays them, and they stay in each store's own currency.</p>
-      </details>
-    </section>
-
-    <h2 class="sec-title">Website</h2>
     <div class="tiles" data-tiles></div>
     <div class="grid">
       <article class="card wide" data-chart="views"></article>
