@@ -73,10 +73,22 @@ code { font-size: .92em; background: var(--bg2); padding: 2px 6px; border-radius
 .kdp-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 800 15px/1 var(--ui); background: var(--pen); color: #fff;
   border-radius: 12px; padding: 14px 20px; text-decoration: none; white-space: nowrap; transition: transform .15s; }
 @media (hover: hover) { .kdp-btn:hover { transform: translateY(-3px); } }
+.social-links { background: var(--surface-1); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; margin-top: 14px; }
+.social-links h2 { font: 700 26px/1.1 var(--display); color: var(--ink); margin: 0 0 4px; }
+.social-links p { font: 500 14px/1.4 var(--ui); color: var(--text-secondary); margin: 0 0 16px; }
+.social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.social-btn { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--pen-soft); color: var(--pen-ink);
+  border-radius: 12px; padding: 12px 16px; text-decoration: none; transition: transform .15s; }
+.social-btn span { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.social-btn b { font: 800 15px/1.1 var(--ui); }
+.social-btn small { font: 500 12px/1.2 var(--ui); color: var(--text-secondary); }
+@media (hover: hover) { .social-btn:hover { transform: translateY(-3px); } }
 @media (max-width: 820px) {
   .tiles { grid-template-columns: 1fr 1fr; }
   .kdp-btn { width: 100%; }
+  .social-grid { grid-template-columns: 1fr 1fr; }
   .tile.hero { grid-column: 1 / -1; }
   .grid { grid-template-columns: 1fr; }
   .filters .since { width: 100%; margin-left: 0; }
 }
+@media (max-width: 420px) { .social-grid { grid-template-columns: 1fr; } }
