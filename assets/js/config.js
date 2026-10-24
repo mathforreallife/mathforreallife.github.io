@@ -75,11 +75,9 @@ window.MFRL = {
  "reviewsSource": "amazon",
  "socials": {
   "youtube": "https://www.youtube.com/@mathforreallife",
-  "tiktok": "https://www.tiktok.com/@mathforreallife1",
   "instagram": "https://www.instagram.com/mathforreallife/",
   "facebook": "https://www.facebook.com/profile.php?id=61595167450907",
-  "pinterest": "https://www.pinterest.com/mathforreallife/",
-  "x": "https://x.com/mathforreallife"
+  "pinterest": "https://www.pinterest.com/mathforreallife/"
  },
  "legal": false
 };
